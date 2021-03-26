@@ -2,7 +2,9 @@
 <template>
 <el-container>
   <el-aside style="transition: all .5s" :width="!isCollapse ? '200px' : '64px'">
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" style="background-color: #808080">
+    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
       <el-submenu index="1">
         <template #title>
           <i class="el-icon-location"></i>
@@ -21,9 +23,9 @@
           <el-menu-item index="1-4-1">选项1</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="2">
+      <el-menu-item index="2"  @click="selectMenu('haha')">
         <i class="el-icon-menu"></i>
-        <template #title @click="selectMenu(haha)">导航二</template>
+        <template #title>导航二</template>
       </el-menu-item>
       <el-menu-item index="3" disabled>
         <i class="el-icon-document"></i>
@@ -69,6 +71,7 @@
       }
 
       const selectMenu = (name: string): void => {
+        console.log(name)
         router.push({name: name})
       }
       return {
