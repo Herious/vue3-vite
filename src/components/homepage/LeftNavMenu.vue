@@ -11,13 +11,10 @@
           <span>导航一</span>
         </template>
         <el-menu-item-group>
-          <template #title>分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
+          <el-menu-item index="1-1" @click="selectMenu('table')">表格</el-menu-item>
           <el-menu-item index="1-2">选项2</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
+        <el-menu-item index="1-3">选项3</el-menu-item>
         <el-submenu index="1-4">
           <template #title>选项4</template>
           <el-menu-item index="1-4-1">选项1</el-menu-item>
@@ -25,9 +22,9 @@
       </el-submenu>
       <el-menu-item index="2"  @click="selectMenu('haha')">
         <i class="el-icon-menu"></i>
-        <template #title>导航二</template>
+        <template #title>哈哈哈</template>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
+      <el-menu-item index="3">
         <i class="el-icon-document"></i>
         <template #title>导航三</template>
       </el-menu-item>
@@ -63,10 +60,10 @@
         state.isCollapse = !state.isCollapse
       }
     
-      const handleOpen = (key:number, keyPath:string):void => {
+      const handleOpen = (key: number, keyPath: string): void => {
         console.log(key, keyPath);
       }
-      const handleClose = (key:number, keyPath:string):void => {
+      const handleClose = (key: number, keyPath: string): void => {
         console.log(key, keyPath);
       }
 
@@ -75,7 +72,7 @@
         router.push({name: name})
       }
       return {
-        ...toRefs(state),
+        ...toRefs(state), //...为ES6扩展运算符，会取消双向数据绑定的特性,使用toRefs(),转为响应式数据
         handleOpen,
         handleClose,
         changeIsCollapse,
